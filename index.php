@@ -2,7 +2,7 @@
 
 // Подключение фреймворка
 $f3=require_once('lib/base.php');
-$f3->set('DEBUG',1);
+$f3->set('DEBUG',0);
 if ((float)PCRE_VERSION<7.9)
 	trigger_error('PCRE version is out of date');
 $f3->config('config.ini');

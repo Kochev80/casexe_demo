@@ -66,9 +66,10 @@ class Play {
     public static function getState($f3) {
         // Запрос информации о пользователе
         if ($f3->exists('SESSION.user_id')) {
-            $user_info=($f3->get('db')->exec(
+            $rows=$user_info=($f3->get('db')->exec(
                 'select * from users where id=:id',
-                array(':id'=>$f3->get('SESSION.user_id'))))[0];
+                array(':id'=>$f3->get('SESSION.user_id'))));
+            $user_info=$rows[0];
         }
         // Создание барабана для розыгрыша, если структура пустая
         if (!$f3->exists('SESSION.baraban')) $f3->set('SESSION.baraban',Play::buildBaraban($f3));
